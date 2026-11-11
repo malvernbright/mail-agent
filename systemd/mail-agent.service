@@ -1,0 +1,8 @@
+[Unit]
+Description=Mail Agent: triage Gmail and send reminders
+After=network-online.target ollama.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/mail-agent check --quiet
+Nice=10

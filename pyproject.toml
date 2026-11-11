@@ -1,0 +1,25 @@
+[project]
+name = "mail-agent"
+version = "0.1.0"
+description = "Local Ollama assistant: Gmail triage, reminders, reply drafts and Google Calendar planning"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ollama>=0.6",
+    "google-api-python-client>=2.150",
+    "google-auth-oauthlib>=1.2",
+    "pydantic>=2.8",
+    "typer>=0.15",
+    "rich>=13.9",
+    "click>=8.5.1",
+]
+
+[project.scripts]
+mail-agent = "mail_agent.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mail_agent"]
